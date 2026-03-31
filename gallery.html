@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Samurai Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .filter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .filter-btn {
+            background: none;
+            border: none;
+            font-family: var(--f-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        .filter-btn.active {
+            opacity: 1;
+            color: var(--accent);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 36, 32, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        .gallery-item-overlay span {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            border: 1px solid white;
+            padding: 0.8rem 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Samurai Beauty</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-cta">
+            <a href="booking.html" class="btn btn-accent" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">Book Now</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" style="height: 50vh;">
+            <h1 class="hero-headline">Our Work</h1>
+            <p class="hero-subheadline">A visual journey through our rituals of care. Precision, artistry, and the pursuit of refined beauty.</p>
+        </section>
+
+        <section id="gallery">
+            <div class="filter-nav">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="makeup">Makeup</button>
+                <button class="filter-btn" data-filter="lashes">Lashes</button>
+                <button class="filter-btn" data-filter="skin">Skin</button>
+                <button class="filter-btn" data-filter="editorial">Editorial</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="makeup">
+                    <img src="https://loremflickr.com/1000/1000/makeup,artist?lock=2" alt="Makeup artistry" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Glam</span></div>
+                </div>
+                <div class="gallery-item" data-category="editorial">
+                    <img src="https://loremflickr.com/1000/1000/beauty,woman,portrait?lock=2" alt="Editorial look" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Editorial</span></div>
+                </div>
+                <div class="gallery-item" data-category="skin">
+                    <img src="https://loremflickr.com/1000/1000/woman,cream,beauty?lock=1" alt="Skin ritual" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Skin Ritual</span></div>
+                </div>
+                <div class="gallery-item" data-category="lashes">
+                    <img src="https://loremflickr.com/1000/1000/beauty,cosmetics?lock=3" alt="Lash application" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Lashes</span></div>
+                </div>
+                <div class="gallery-item" data-category="makeup">
+                    <img src="https://loremflickr.com/1000/1000/beauty,cosmetics?lock=1" alt="Makeup tools" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Glam</span></div>
+                </div>
+                <div class="gallery-item" data-category="skin">
+                    <img src="https://loremflickr.com/1000/1000/beauty,portrait?lock=3" alt="Natural beauty" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Skin Ritual</span></div>
+                </div>
+                <div class="gallery-item" data-category="editorial">
+                    <img src="https://loremflickr.com/1000/1000/woman,fashion,dark?lock=1" alt="Fashion editorial" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Editorial</span></div>
+                </div>
+                <div class="gallery-item" data-category="makeup">
+                    <img src="https://loremflickr.com/1000/1000/beauty,woman,portrait?lock=1" alt="Portrait beauty" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Glam</span></div>
+                </div>
+                <div class="gallery-item" data-category="lashes">
+                    <img src="https://loremflickr.com/1000/1000/eyebrow,beauty?lock=1" alt="Eye and lash detail" loading="lazy">
+                    <div class="gallery-item-overlay"><span>Lashes</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <div class="footer-logo">Samurai Beauty</div>
+            <p style="opacity: 0.7; max-width: 300px;">A sanctuary of Japanese precision and modern elegance in the heart of the city.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Studio</h4>
+            <ul>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Digital</h4>
+            <ul>
+                <li><a href="https://www.instagram.com/beautysamurai/" target="_blank">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Visit</h4>
+            <p style="opacity: 0.7;">123 Zen Garden Way<br>Kyoto District, NY 10001</p>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Samurai Beauty. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
